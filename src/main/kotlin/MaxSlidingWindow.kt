@@ -1,8 +1,8 @@
-class Solution {
+/*class Solution {
     fun maxSlidingWindow(nums: IntArray, k: Int): IntArray {
         return MaxSlidingWindow().calculate(nums, k)
     }
-}
+}*/
 
 // https://leetcode.com/problems/sliding-window-maximum/description/
 class MaxSlidingWindow {
