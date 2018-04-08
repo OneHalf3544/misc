@@ -1,12 +1,5 @@
 import java.util.*
 
-class Solution {
-
-    fun isValid(s: String): Boolean {
-        return ValidParentheses().isValid(s)
-    }
-}
-
 
 class ValidParentheses {
 
