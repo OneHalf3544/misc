@@ -2,12 +2,6 @@ import Direction.*
 import java.awt.Point
 import java.awt.Rectangle
 
-class Solution {
-
-    fun spiralOrder(matrix: Array<IntArray>): List<Int> =
-        if (matrix.isEmpty()) arrayListOf() else SpiralMartix(matrix).solve()
-}
-
 class SpiralMartix(val matrix: Array<IntArray>) {
 
     var bounds = Rectangle(matrix[0].size, matrix.size)
@@ -77,6 +71,5 @@ fun main(args: Array<String>) {
 }
 
 private fun printFor(matrix: Array<IntArray>) {
-    val spiralOrder = Solution().spiralOrder(matrix)
-    println(spiralOrder)
+    println(SpiralMartix(matrix).solve())
 }
