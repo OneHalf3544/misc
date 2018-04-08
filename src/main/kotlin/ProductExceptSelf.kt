@@ -1,4 +1,4 @@
-class Solution {
+class ProductExceptSelf {
     fun productExceptSelf(nums: IntArray): IntArray {
         val leftProduct = IntArray(nums.size);
         val rightProduct = IntArray(nums.size);
@@ -22,5 +22,5 @@ class Solution {
 }
 
 fun main(args: Array<String>) {
-    println(Solution().productExceptSelf(intArrayOf(1, 2, 3, 4)).toList())
+    println(ProductExceptSelf().productExceptSelf(intArrayOf(1, 2, 3, 4)).toList())
 }
