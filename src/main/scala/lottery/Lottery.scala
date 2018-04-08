@@ -19,10 +19,10 @@ object Lottery {
 
     val ticketsCount = scanner.nextLine().toLong
 
-    val result = (1L to ticketsCount)
-      .map(i => new Ticket(readLineNumbers(scanner)))
-      .map(numbers.isTicketWon)
-      .map(if (_) "Lucky" else "Unlucky")
+    val result = (1L.to(ticketsCount))
+      .map(i => new Ticket(Lottery.readLineNumbers(scanner)))
+      .map(numbers.isTicketWon _)
+      .map(if ((_: Boolean)) "Lucky" else "Unlucky")(scala.collection.immutable.IndexedSeq.canBuildFrom)
       .toList
 
     scanner.close()

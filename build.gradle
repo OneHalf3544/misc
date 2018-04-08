@@ -47,3 +47,8 @@ dependencyUpdates.resolutionStrategy = {
         }
     }
 }
+
+test {
+    // enable TestNG support (default is JUnit)
+    useTestNG()
+}
