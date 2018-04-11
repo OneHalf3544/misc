@@ -1,5 +1,5 @@
 fun main(args: Array<String>) {
-    val list = Solution().mergeKLists(
+    val list = Solution2().mergeKLists(
             arrayOf<ListNode?>(
                 list(1, 2, 3),
                 list(2, 3, 4),
@@ -21,7 +21,7 @@ fun list(vararg i: Int): ListNode? {
  *     var next: ListNode? = null
  * }
  */
-class Solution {
+class Solution2 {
     fun mergeKLists(lists: Array<ListNode?>): ListNode? {
         return when (lists.size) {
             0 -> return null

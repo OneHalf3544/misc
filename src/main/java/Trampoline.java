@@ -1,23 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class Fibonachi {
-
-    private static final Map<Integer, Long> cache = new HashMap<>();
-    static {
-        cache.put(1, 1L);
-        cache.put(2, 1L);
-    }
+public class Trampoline {
 
     public static void main(String[] args) {
         System.out.print(sumOfFirst(100_000));
-    }
-
-    private static long fibonachi(int number) {
-        assert number > 0 : "number should be more than zero";
-        return cache.computeIfAbsent(number, n -> fibonachi(n - 2) + fibonachi(n - 1));
     }
 
     private static long sumOfFirst(int number) {
