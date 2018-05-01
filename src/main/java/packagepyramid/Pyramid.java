@@ -46,12 +46,11 @@ class Pyramid {
     }
 
     @Override
-    @SneakyThrows
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (int row = 1; row <= height; row++) {
             for (int col = 1; col <= row; col++) {
-                result.append(content[index(row, col)].get()).append(" ");
+                result.append(content[index(row, col)].getRawResult()).append(" ");
             }
             result.append("\n");
         }
