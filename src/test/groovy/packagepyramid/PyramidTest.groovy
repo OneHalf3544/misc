@@ -1,6 +1,7 @@
 package packagepyramid
 
 import spock.lang.Specification
+import spock.lang.Timeout
 import spock.lang.Unroll
 
 @Unroll
@@ -28,7 +29,7 @@ class PyramidTest extends Specification {
         def pyramid = new Pyramid(1)
 
         expect:
-        pyramid.get(1, 1) == 1
+        pyramid.getTask(1, 1).get() == 1
     }
 
     def 'a pyramid with two rows should contain 1 in all cells'() {
@@ -36,9 +37,9 @@ class PyramidTest extends Specification {
         def pyramid = new Pyramid(2)
 
         expect:
-        pyramid.get(1, 1) == 1
-        pyramid.get(2, 1) == 1
-        pyramid.get(2, 2) == 1
+        pyramid.getTask(1, 1).get() == 1
+        pyramid.getTask(2, 1).get() == 1
+        pyramid.getTask(2, 2).get() == 1
     }
 
     def 'toString of a pyramid with two rows should have a correct value'() {
@@ -68,5 +69,14 @@ class PyramidTest extends Specification {
                              |1 3 3 1 
                             |1 4 6 4 1 
                            |""".stripMargin("|")
+    }
+
+    @Timeout(10)
+    def 'toString of a pyramid with hundred rows should have a correct value'() {
+        given:
+        def pyramid = new Pyramid(30)
+
+        expect:
+        pyramid.getTask(30, 15).get() == 77558760
     }
 }
