@@ -1,16 +1,17 @@
 plugins {
     id 'com.github.ben-manes.versions' version '0.17.0'
-    id "org.jetbrains.kotlin.jvm" version "1.2.21"
+    id "org.jetbrains.kotlin.jvm" version "1.2.40"
 }
 
-group 'ru.yandex.money'
-version '1.0-SNAPSHOT'
+group = 'ru.yandex.money'
+version = '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'scala'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 1.9
+targetCompatibility = 1.9
 
 repositories {
     mavenCentral()
@@ -27,6 +28,9 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.4.13'
     compile 'org.scala-lang:scala-library:2.12.4'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.21"
+
+    compileOnly 'org.projectlombok:lombok:1.16.20'
+    annotationProcessor "org.projectlombok:lombok:1.16.20"
 
     testCompile "org.spockframework:spock-core:1.1-groovy-2.4"
 
