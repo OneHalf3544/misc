@@ -4,8 +4,21 @@ import spock.lang.Specification
 import spock.lang.Timeout
 import spock.lang.Unroll
 
+import java.time.Duration
+import java.time.Instant
+
 @Unroll
 class PyramidTest extends Specification {
+
+    def startTime;
+
+    def setup() {
+        startTime = Instant.now()
+    }
+
+    def cleanup() {
+        println "duration: ${Duration.between(startTime, Instant.now())}"
+    }
 
     def 'a pyramid with four rows should contain ten cells'() {
         expect:
@@ -71,12 +84,12 @@ class PyramidTest extends Specification {
                            |""".stripMargin("|")
     }
 
-    @Timeout(10)
+    //@Timeout(10)
     def 'toString of a pyramid with hundred rows should have a correct value'() {
-        given:
+        when:
         def pyramid = new Pyramid(30)
 
-        expect:
+        then:
         pyramid.getTask(30, 15).get() == 77558760
     }
 }
